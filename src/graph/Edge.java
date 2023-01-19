@@ -2,13 +2,13 @@ package graph;
 
 import java.util.Objects;
 
-public class Edge {
+public class Edge<V extends Vertex> {
 
     private double weight;
-    private Vertex start;
-    private Vertex target;
+    private V start;
+    private V target;
 
-    public Edge(double weight, Vertex start, Vertex target) {
+    public Edge(double weight, V start, V target) {
         this.weight = weight;
         this.start = start;
         this.target = target;
@@ -18,11 +18,11 @@ public class Edge {
         return weight;
     }
 
-    public Vertex getStart() {
+    public V getStart() {
         return start;
     }
 
-    public Vertex getTarget() {
+    public V getTarget() {
         return target;
     }
 
@@ -32,7 +32,7 @@ public class Edge {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Edge edge = (Edge) o;
+        Edge<V> edge = (Edge<V>) o;
         return start.equals(edge.start) && target.equals(edge.target);
     }
 
